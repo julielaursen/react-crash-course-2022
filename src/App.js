@@ -1,15 +1,19 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
+// code up until 39:00 of https://www.youtube.com/watch?v=b9eMGE7QtTk
 const App = () => {
   const [counter, setCounter] = useState(0);
 
-  // stopped at 33:33 on https://www.youtube.com/watch?v=b9eMGE7QtTk
+  useEffect(() => {
+     setCounter(0)
+  }, []);
+
   return (
     <div className="App">
-      <button>-</button>
+      <button onClick={() => setCounter((prevCount) => prevCount - 1)}>-</button>
       <h1>{counter}</h1>
-      <button>+</button>
+      <button onClick={() => setCounter((prevCount) => prevCount + 1)}>+</button>
     </div>
   );
 }
